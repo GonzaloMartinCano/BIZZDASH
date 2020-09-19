@@ -5,6 +5,8 @@ const User = require('../models/user.model')
 
 // const checkLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.render('auth/login', { message: 'Desautorizado, incia sesión para continuar' })
 
+let navbar = 'navbarloggout'
+
 const checkLoggedIn = (req, res, next) => {
 
 
@@ -12,16 +14,20 @@ const checkLoggedIn = (req, res, next) => {
 
         const userRegistered = true
         const looggin = true
-        res.render('profile', { user: req.user, userRegistered })
+        res.render('profile', { user: req.user, userRegistered, navbarPartial: 'navbarloggin' })
 
-    } else {
+    } else if (req.isAuthenticated()) {
 
+        navbar = 'navbarloggin'
+        next()
+
+    } else {    
+        navbar = 'navbarloggout'
         next()
 
     }
 
 }
-
 
 
 // const checkRole = rolesToCheck => (req, res, next) => req.isAuthenticated() && rolesToCheck.includes(req.user.role) ? next() : res.render('auth/login', { message: 'Desautorizado, no tienes permisos para ver eso.' })
@@ -59,7 +65,7 @@ router.get('/:username', checkLoggedIn, (req, res, next) => {
         .findOne({ username })                              // Retorna un objeto
         .then(user => {
             if (user)
-                res.render('profile', { user })
+                res.render('profile', { user, navbarPartial: navbar })
             else
                 res.render('index', { message: 'Usuario no encontrado, pruebe con otro nombre.' })
         })

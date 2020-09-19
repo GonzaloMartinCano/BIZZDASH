@@ -1,8 +1,5 @@
-    {{#if userRegistered}}
-        {{> navbarloggin}}
-    {{else }}
-        {{> navbarloggout}}
-    {{/if}}
+  
+{{> (lookup . 'navbarPartial')}}
 
 <div class="container">
 
