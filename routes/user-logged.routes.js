@@ -41,8 +41,6 @@ router.get('/setting/profile', checkLoggedIn, (req, res, next) => {
 
     const userRegistered = true
 
-    //res.render('profile', { user: req.user, userRegistered })
-
     const { id, username } = req.user
 
     User
@@ -54,22 +52,20 @@ router.get('/setting/profile', checkLoggedIn, (req, res, next) => {
 
 router.get('/:username', checkLoggedIn, (req, res, next) => {
 
-    const user = req.params
+    const username = req.params.username
 
-    console.log(user)
+    User
+        .findOne({ username })                              // Retorna un objeto
+        .then(user => {
+            if (user)
+                res.render('profile', { user })
+            else
+                res.render('index', { message: 'Usuario no encontrado, pruebe con otro nombre.' })
+        })
+        .catch(err => next(err))
 
-    res.render('profile', { user })
-
-
-    // User
-    //     .findOne({ username })                              // Retorna un objeto
-    //     .then(userData => res.render('profile', userData))
-    //     .catch(err => next(err))
 
 })
-
-
-// Idea de nombre BIZDASH (biz es una abreviatura de Business en ingles)
 
 
 module.exports = router

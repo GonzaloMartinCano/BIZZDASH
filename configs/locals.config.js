@@ -1,3 +1,3 @@
 module.exports = app => {
-    app.locals.title = 'BUSINESS DASH'
+    app.locals.title = 'BIZDASH'
 }
