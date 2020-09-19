@@ -1,11 +1,19 @@
+    {{#if userRegistered}}
+        {{> navbarloggin}}
+    {{else }}
+        {{> navbarloggout}}
+    {{/if}}
 
-<h1>Esto es el perfil de: {{user.username}} </h1>
+<div class="container">
+
+    <h1>Esto es el perfil de: {{user.username}} </h1>
 
 
 
-{{#if userRegistered}}
+    {{#if userRegistered}}
+        <p>Esto solo lo puede ver el usuario logueado: {{user.username}}</p>
+        <p>Y esto tambien</p>
+    {{/if }}
 
-<p>Esto solo lo puede ver el usuario logueado: {{user.username}}</p>
-<p>Y esto tambien</p>
+</div>
 
-{{/if }}

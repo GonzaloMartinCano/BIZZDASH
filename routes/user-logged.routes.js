@@ -11,6 +11,7 @@ const checkLoggedIn = (req, res, next) => {
     if (req.isAuthenticated() && req.user.username === req.params.username) {
 
         const userRegistered = true
+        const looggin = true
         res.render('profile', { user: req.user, userRegistered })
 
     } else {
