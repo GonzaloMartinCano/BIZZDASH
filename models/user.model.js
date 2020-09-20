@@ -51,16 +51,50 @@ const userSchema = new Schema({
         required: true,
         trim: true
     },
-    gitHub: {
-        type: String,
-        required: true,
-        trim: true
+    links: {
+        gitHub: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        linkedin: {
+            type: String,
+            required: true,
+            trim: true
+        }
     },
-    linkedin: {
-        type: String,
-        required: true,
-        trim: true
-    }
+    projects: [
+        {
+            name: {
+                type: String,
+                required: true,
+                trim: true
+            },
+            description: {
+                type: String,
+                required: true,
+                trim: true
+            },
+            links: {
+                gitHub: {
+                    type: String,
+                    trim: true
+                },
+                web: {
+                    type: String,
+                    trim: true
+                }
+            },
+            media: {
+                type: 'String',
+                required: true
+            },
+            tags: {
+                type: [String],
+                enum: ['HTML5', 'CSS', 'JavaScript', 'Node.js', 'React']
+            }
+        }
+    ]
 }, {
     timestamps: true
 })
