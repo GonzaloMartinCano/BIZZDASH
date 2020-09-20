@@ -8,12 +8,10 @@ Project to creat a businees dashboard
 | ------------- | ------------- | ------------- | ------------- |
 |  / | GET  | ALL  | INDEX   |
 |  /:USERNAME | GET  | GUEST  | USERPROFILE  |
-|   |   |   |   |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+|   /:USERNAME  |  GET | USER /ADMIN  | USERPROFILE/EDIT  |
+| /:USERNAME/DASHBOARD  | GET  | USER  | DAHSBOARD  |
+| /:USERNAME/DASHBOARD/EDIT  | POST  | USER  | DAHSBOARD  |
+
 
 
 
