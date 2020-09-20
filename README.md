@@ -1,5 +1,6 @@
-# business-dash
-Project to creat a businees dashboard
+# BIZDASH
+
+Project to create your own businees dashboard
 
 
 
