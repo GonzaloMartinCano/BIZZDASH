@@ -4,10 +4,16 @@ Project to creat a businees dashboard
 
 
 
-| ENDPOINT  | METHOD | PERMISO  | VISTA |
+| ENDPOINT  | METHOD | ROLE  | VIEW |
 | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+|  / | GET  | ALL  | INDEX   |
+|  /:USERNAME | GET  | GUEST  | USERPROFILE  |
+|   |   |   |   |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 
 
