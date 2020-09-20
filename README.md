@@ -4,7 +4,7 @@ Project to creat a businees dashboard
 
 
 
-| First Header  | Second Header |
+| ENDPOINT  | METHOD | PERMISO  | VISTA |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
