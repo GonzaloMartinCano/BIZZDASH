@@ -1,9 +1,18 @@
 body {
   font-weight: 200;
+  // background-color: rgba(76, 90, 128, 0.397);
+  // https://2.bp.blogspot.com/-o_wtMSKDfBY/WOQFhnI7wfI/AAAAAAAAGKc/K8LR0aTTrAU-jvkyVWS3xGMQ0V7wX34jACLcB/s1600/Diez%2Btips%2Bpara%2Brealizar%2Bcon%2B%25C3%25A9xito%2Bnegocios%2Ben%2Bel%2Bexterior.jpeg
+  // https://negociostart.com/wp-content/uploads/2019/06/20-mejores-FintechAm%C3%A9ricaEspana-Ideas-Negocios-Rentables.jpg
+  background-image: url(https://2.bp.blogspot.com/-o_wtMSKDfBY/WOQFhnI7wfI/AAAAAAAAGKc/K8LR0aTTrAU-jvkyVWS3xGMQ0V7wX34jACLcB/s1600/Diez%2Btips%2Bpara%2Brealizar%2Bcon%2B%25C3%25A9xito%2Bnegocios%2Ben%2Bel%2Bexterior.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
 }
 
-h1, h2, h3 {
-  font-weight: 200;
+
+h1, h2, h3, span {
+  font-weight: 900;
+  // color: white;
 }
 
 .navbar {
