@@ -1,0 +1,147 @@
+<p id="api">Salario <p/>
+
+<div class="container-fluid">
+
+    <h1 class="h3 mb-2">Charts</h1>
+    
+    <div class="row">
+
+        <div class="col-xl-8 col-lg-7">
+
+            <!-- Area Chart -->
+            <div class="card shadow mb-4">
+                
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                </div>
+
+                <div class="card-body">
+
+                    <figure class="chart-area">
+                        <canvas id="myAreaChart"></canvas>
+                    </figure>
+
+                    <hr>
+                    
+                </div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="card shadow mb-4">
+
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                </div>
+
+                <div class="card-body">
+
+                    <figure class="chart-bar">
+                        <canvas id="salaryBarChart"></canvas>
+                    </figure>
+
+                    <hr>
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Donut Chart -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    
+                    <figure class="chart-pie pt-4">
+                        <canvas id="myPieChart"></canvas>
+                    </figure>
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/api/api-handler.js"></script>
+<script src="/javascripts/api/api-index.js"></script>
+
+<script>
+    const jobAPI = new JobApiHandler();
+    
+    jobAPI
+        .getSalaryHistory()
+        .then(response => {
+
+            const apiHTML = document.querySelector('#api')
+
+            const responseValues = Object.values(response.data.month)
+            const responseKeys = Object.keys(response.data.month)
+
+
+            for (let i = 0; i < responseValues.length; i++) {
+                console.log(responseValues[i], responseKeys[i])
+
+                apiHTML.innerHTML += `<br>${responseKeys[i]} --- ${responseValues[i]}<br>`
+            }
+
+            console.log(responseKeys, responseValues)
+
+
+        })
+        .catch(err => console.log('Error', err))
+
+
+
+        // chart
+
+    function salaryChart(coasters, id) {
+
+        const styles = {
+            color: {
+                solids: ['rgba(116, 72, 194, 1)', 'rgba(33, 192, 215, 1)', 'rgba(217, 158, 43, 1)', 'rgba(205, 58, 129, 1)', 'rgba(156, 153, 204, 1)', 'rgba(225, 78, 202, 1)'],
+                alphas: ['rgba(116, 72, 194, .2)', 'rgba(33, 192, 215, .2)', 'rgba(217, 158, 43, .2)', 'rgba(205, 58, 129, .2)', 'rgba(156, 153, 204, .2)', 'rgba(225, 78, 202, .2)']
+            }
+        }
+
+
+            const selectedCoasters = coasters.filter(eachCoaster => eachCoaster.gForce)
+
+            const data = {
+                labels: selectedCoasters.map(eachCoaster => eachCoaster.name),
+                datasets: [{
+                    data: selectedCoasters.map(eachCoaster => eachCoaster.gForce),
+                    backgroundColor: styles.color.alphas,
+                    borderColor: styles.color.solids
+                }]
+            }
+
+            const options = {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            display: false
+                        },
+                        ticks: {
+                            display: true
+                        }
+                    }]
+                }
+            }
+
+            new Chart(id, { type: 'bar', data, options })
+
+        }
+
+
+</script>
