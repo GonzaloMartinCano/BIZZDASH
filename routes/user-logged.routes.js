@@ -44,18 +44,7 @@ const checkLoggedIn = (req, res, next) => {
 // }
 
 
-router.get('/setting/profile', checkLoggedIn, (req, res, next) => {
-
-    const userRegistered = true
-
-    const { id, username } = req.user
-
-    User
-        .findById(id)
-        .then(() => res.redirect(`/profile/${username}`))
-        .catch(err => next(err))
-
-})
+router.get('/dashboard/', checkLoggedIn, (req, res, next) => res.render('profile/dashboard'))
 
 router.get('/:username', checkLoggedIn, (req, res, next) => {
 
