@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
     name: {
         type: String,
-        //required: true,
+        required: true,
         trim: true
     },
     username: {
@@ -25,8 +25,8 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        //required: true,
-        //unique: true,
+        required: true,
+        unique: true,
         trim: true
     },
     phone: {
@@ -82,7 +82,14 @@ const userSchema = new Schema({
                 }
             },
             media: {
-                type: 'String',
+                img: {
+                    type: 'String',
+                    required: true,
+                    default: 'https://cdn-images-1.listennotes.com/podcasts/the-official-project-censored-show-project-RNkeS2yQAFK.1400x1400.jpg'
+                },
+                video: {
+                    type: 'String'
+                },
             },
             tags: {
                 type: [String],
