@@ -2,9 +2,20 @@
 {{> (lookup . 'navbarPartial')}}
 
 <div class="container">
+    <div class="row">
+        <div class="col-4">
+            <h2>Esto es el perfil de: {{user.username}} </h2>
+            <img class="rounded-circle" src="{{user.profileImg}}" alt="profileImg">
+        </div>
+        <div class="col-2"></div> {{!-- solo para dar espacio --}}
+        <div class="col-6">
+            <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, voluptatum. Ab nobis quisquam numquam adipisci cum velit soluta porro dolorum quibusdam suscipit odio minima autem, voluptatum delectus aliquam aut deserunt?</span>
+            <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus nostrum placeat debitis eius, maxime delectus ullam! Architecto culpa laboriosam iusto commodi dolorum totam debitis, dignissimos laudantium corrupti quaerat doloremque reprehenderit.</span>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsum commodi, id voluptatem suscipit repudiandae ipsam, voluptas corrupti dolorum architecto ducimus numquam eveniet laborum placeat molestiae officia eius libero quod?</span>
+        </div>
 
-    <h1>Esto es el perfil de: {{user.username}} </h1>
-    <img src="{{user.profileImg}}" alt="profileImg">
+
+    </div>
 
 
 
