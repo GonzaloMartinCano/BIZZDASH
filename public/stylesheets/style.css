@@ -19,8 +19,33 @@ h1, h2, h3, span {
   padding: 10px 0;
   margin-top: 5px; }
 
-img {
-  width: 100%;
+/* Profile page */
+.profile .card img {
+  height: 130px;
   object-fit: cover; }
+
+.profile .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: .25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+
+.profile .card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem; }
+
+.profile h6 span {
+  vertical-align: bottom; }
+
+.profile .card-deck {
+  margin-right: 0;
+  margin-left: 0; }
 
 /*# sourceMappingURL=style.css.map */

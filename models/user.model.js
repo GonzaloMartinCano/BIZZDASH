@@ -31,16 +31,16 @@ const userSchema = new Schema({
     },
     phone: {
         type: Number,
-        required: true,
+        //required: true,
         trim: true
     },
     country: {
         type: String,
-        required: true
+        //required: true
     },
     city: {
         type: String,
-        require: true
+        //require: true
     },
     interest: {
         type: [String],
@@ -48,18 +48,16 @@ const userSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
+        //required: true,
         trim: true
     },
     links: {
         gitHub: {
             type: String,
-            required: true,
             trim: true
         },
         linkedin: {
             type: String,
-            required: true,
             trim: true
         }
     },
@@ -67,12 +65,10 @@ const userSchema = new Schema({
         {
             name: {
                 type: String,
-                required: true,
                 trim: true
             },
             description: {
                 type: String,
-                required: true,
                 trim: true
             },
             links: {
@@ -86,8 +82,14 @@ const userSchema = new Schema({
                 }
             },
             media: {
-                type: 'String',
-                required: true
+                img: {
+                    type: 'String',
+                    required: true,
+                    default: 'https://cdn-images-1.listennotes.com/podcasts/the-official-project-censored-show-project-RNkeS2yQAFK.1400x1400.jpg'
+                },
+                video: {
+                    type: 'String'
+                },
             },
             tags: {
                 type: [String],
