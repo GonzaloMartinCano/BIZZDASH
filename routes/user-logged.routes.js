@@ -14,7 +14,7 @@ const checkLoggedIn = (req, res, next) => {
 
         const userRegistered = true
         const looggin = true
-        res.render('profile', { user: req.user, userRegistered, navbarPartial: 'navbarloggin' })
+        res.render('profile', { user: req.user, userRegistered})
 
     } else if (req.isAuthenticated()) {
 
@@ -65,7 +65,7 @@ router.get('/:username', checkLoggedIn, (req, res, next) => {
         .findOne({ username })                              // Retorna un objeto
         .then(user => {
             if (user)
-                res.render('profile', { user, navbarPartial: navbar })
+                res.render('profile', { user })
             else
                 res.render('index', { message: 'Usuario no encontrado, pruebe con otro nombre.' })
         })

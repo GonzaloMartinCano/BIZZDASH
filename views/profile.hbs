@@ -1,7 +1,7 @@
   
-{{> (lookup . 'navbarPartial')}}
+{{> navbarloggin}}
 
-<main class="container profile">
+<main class="container-fluid profile">
    
     <div class="row">
 
@@ -16,7 +16,9 @@
 
                             {{#if userRegistered}}
 
-                            <a class="btn btn-outline-dark">Editar</a>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editprofile">
+                                                Edit Profile
+                                            </button>
 
                             {{/if }}
                             
@@ -42,59 +44,18 @@
                     </div>
                     
                     <hr>
-                    
+                    <span>{{user.description}}</span>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="row">
-
-        <div class="card-deck">
-            <div class="card col-md-4">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.
-                    </p>
-
-                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
-                        Ver detalles
-                    </button>
-
-                </div>
-            </div>
-
-            <div class="card col-md-4">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open
-                        Ver detalles 1 @mdo
-                    </button>
-
-                </div>
-            </div>
-
-            <div class="card col-md-4">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                        content. This card has even longer content than the first to show that equal height action.
-                    </p>
-
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                        Launch static backdrop modal
-                    </button>
-
-
-                </div>
-            </div>
-        </div>
+          <div class="card-deck">
+            
+            {{> projects}}
+            {{> projects}}
+            {{> projects}}
+          </div>
 
     </div>
 
@@ -141,28 +102,44 @@
 
 <!-- Button trigger modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+<!-- Modal EDIT PROFILE-->
+<div class="modal fade" id="editprofile" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">0
+                <h5 class="modal-title" id="staticBackdropLabel">Edit profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ipsum necessitatibus optio totam libero? Cum perferendis ab, pariatur accusamus aperiam quis alias voluptas corporis laboriosam exercitationem, dolorum magni eos labore.</p>
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.
-                </p>
+
+            <form action="/upload" method="POST"  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name-input">Name</label>
+                    <input name="name" type="text" placeholder="{{user.username}}" value="{{user.username}}" class="form-control" id="name-input">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Description</label>
+                    <input name="description" type="text" placeholder="{{user.description}}" value="{{user.description}}" class="form-control" id="description-input">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Git Hub</label>
+                    <input name="description" type="text" placeholder="{{user.link.github}}" value="{{user.link.github}}" class="form-control" id="description-input">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Linkedin</label>
+                    <input name="description" type="text" placeholder="{{user.link.linkedin}}" value="{{user.link.linkedin}}" class="form-control" id="description-input">
+                </div>
+                <input type="text" name="nameInput" placeholder="nombre de la imagen"><br><br>
+                <input type="file" name="imageInput"><br><br>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <button type="submit" class="btn btn-primary">Understood</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

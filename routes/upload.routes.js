@@ -13,14 +13,10 @@ router.post('/upload', cdnUploader.single('imageInput'), (req, res) => {
     const { nameInput } = req.body
     console.log(req.body)
     User.findOneAndUpdate({username: req.user.username}, {profileImg: req.file.path})
-        .then((user) => {
-            console.log(user)
-            //user.profileImg = req.file.path
-
-        })
-        .then(() => res.redirect('upload'))
+        .then((user) => res.redirect(`/${req.user.username}`))
         .catch(err => console.log('Hubo un error:', err))
 })
+
 
 // profileImg: {
 //     type: String,
