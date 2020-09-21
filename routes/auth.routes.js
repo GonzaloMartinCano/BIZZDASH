@@ -29,8 +29,8 @@ router.post("/signup", (req, res, next) => {
             const hashPass = bcrypt.hashSync(password, salt)
 
             User.create({ username, password: hashPass })
-                .then(() => res.redirect("/"))
-                .catch(() => res.render("auth/signup", { errorMsg: "No se pudo crear el usuario" }))
+                .then(() => res.redirect("/login"))
+                .catch(err => console.log('Error creando al usuario', err))
         })
         .catch(error => next(error))
 })

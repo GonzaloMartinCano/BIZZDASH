@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        //required: true,
         trim: true
     },
     username: {
@@ -25,22 +25,22 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true,
-        unique: true,
+        //required: true,
+        //unique: true,
         trim: true
     },
     phone: {
         type: Number,
-        required: true,
+        //required: true,
         trim: true
     },
     country: {
         type: String,
-        required: true
+        //required: true
     },
     city: {
         type: String,
-        require: true
+        //require: true
     },
     interest: {
         type: [String],
@@ -48,18 +48,16 @@ const userSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
+        //required: true,
         trim: true
     },
     links: {
         gitHub: {
             type: String,
-            required: true,
             trim: true
         },
         linkedin: {
             type: String,
-            required: true,
             trim: true
         }
     },
@@ -67,12 +65,10 @@ const userSchema = new Schema({
         {
             name: {
                 type: String,
-                required: true,
                 trim: true
             },
             description: {
                 type: String,
-                required: true,
                 trim: true
             },
             links: {
@@ -87,7 +83,6 @@ const userSchema = new Schema({
             },
             media: {
                 type: 'String',
-                required: true
             },
             tags: {
                 type: [String],
