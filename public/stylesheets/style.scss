@@ -19,6 +19,8 @@ h1, h2, h3, span {
   margin-bottom: 70px;
 }
 
+
+
 #errorMsg {
   background-color: red;
   color: white;
@@ -28,7 +30,25 @@ h1, h2, h3, span {
   margin-top: 5px;
 }
 
+.imglist{
+  margin-top: 15px;
+  margin-left: 10px;
+}
+.imglist img {
+  width: 50px;
+  // height: 130px;
+  object-fit: cover;
+  margin: 0px 50px 20px 50px
+}
 
+.imglist h4  {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.imglist p {
+  margin-top: 12px;
+}
 
 /* Profile page */
 

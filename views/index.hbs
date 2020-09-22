@@ -24,9 +24,23 @@
       </form>
   </div>  
     {{#if users}}
+
+      <div class="row imglist">
+        <div class="col-8 card ">
       {{#each users}}
-        <h1>{{username}}</h1>
+
+          <div class="row imglist">
+            <img clas="col-4 d-inline" src="{{profileImg}}" alt="profileImg">
+            <h4 clas="col-8 d-inline"><a href="/{{username}}">{{username}} =></a></h4><p>{{description}}</p>
+          </div>
+            <hr>
+
+
+
+        
       {{/each}}
+      </div>
+      </div>
     {{/if }}
     {{#if message}}
 
