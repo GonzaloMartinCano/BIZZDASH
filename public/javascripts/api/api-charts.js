@@ -20,9 +20,7 @@ function getSalaryBarChart(salaryHistory, id) {
     const data = {
         labels: salaryHisoryKeys,
         datasets: [{
-            data: salaryHistoryValues,
-            backgroundColor: styles.color.alphas,
-            borderColor: styles.color.alphas
+            data: salaryHistoryValues
         }]
     }
 
