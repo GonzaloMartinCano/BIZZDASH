@@ -1,4 +1,7 @@
 
+const app_id = '88d2f761'
+const app_key = 'c149834145edb3c600358ac8705b465d'
+
 class JobApiHandler {
 
     constructor() {
@@ -11,11 +14,18 @@ class JobApiHandler {
     }
 
     getJobCategories() {
-        return this.app.get(`gb/categories?app_id=88d2f761&app_key=c149834145edb3c600358ac8705b465d&&content-type=application/json`)
+        return this.app.get(`gb/categories?app_id=${app_id}&app_key=${app_key}&&content-type=application/json`)
     }
 
     getSalaryHistory() {
-        return this.app.get('gb/history?app_id=88d2f761&app_key=c149834145edb3c600358ac8705b465d&location0=uk&category=it-jobs&content-type=application/json')
+        return this.app.get(`gb/history?app_id=${app_id}&app_key=${app_key}&location0=uk&category=it-jobs&content-type=application/json`)
+    }
+
+    getSalaryHistogram(category) {
+
+        category = 'javascript'
+
+        return this.app.get(`gb/histogram?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
     }
 
     getJobs(category) {
@@ -23,8 +33,19 @@ class JobApiHandler {
         const page = 1
         const resultPerPage = 10
 
-        return this.app.get(`gb/search/${page}?app_id=88d2f761&app_key=c149834145edb3c600358ac8705b465d&results_per_page=${resultPerPage}&title_only=${category}&&content-type=application/json`)
+        return this.app.get(`gb/search/${page}?app_id=${app_id}&app_key=${app_key}&results_per_page=${resultPerPage}&title_only=${category}&&content-type=application/json`)
     }
+
+    getJobsByLocation() {
+        
+        return this.app.get(`gb/geodata?app_id=${app_id}&app_key=${app_key}&category=it-jobs&content-type=application/json`)
+
+    }
+
+    getTopCompanies() {
+        return this.app.get(`gb/top_companies?app_id=${app_id}&app_key=${app_key}&what=developer&category=it-jobs&content-type=application/json`)
+    }
+
 }
 
 

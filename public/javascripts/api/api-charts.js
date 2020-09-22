@@ -9,18 +9,23 @@ const styles = {
 
 
 // Salary Chart
+function setSalaryChart(salaryHistory, id) {
 
-function getSalaryBarChart(salaryHistory, id) {
+    const salaryHistoryEntries = Object.entries(salaryHistory).sort()
 
-    const salaryHisoryKeys = Object.keys(salaryHistory)
-    const salaryHistoryValues = Object.values(salaryHistory)
+    const salaryHistoryKeys = []
+    const salaryHistoryValues = []
 
-    //console.log(salaryHisoryKeys, salaryHistoryValues, salaryHistory)
+    salaryHistoryEntries.forEach(([key, value]) => {
+        salaryHistoryKeys.push(key)
+        salaryHistoryValues.push(value)
+    })
 
     const data = {
-        labels: salaryHisoryKeys,
+        labels: salaryHistoryKeys,
         datasets: [{
-            data: salaryHistoryValues
+            data: salaryHistoryValues,
+            backgroundColor: styles.color.alphas[1]
         }]
     }
 
@@ -30,9 +35,6 @@ function getSalaryBarChart(salaryHistory, id) {
         },
         scales: {
             yAxes: [{
-                gridLines: {
-                    display: false
-                },
                 ticks: {
                     display: true
                 }
@@ -40,6 +42,84 @@ function getSalaryBarChart(salaryHistory, id) {
         }
     }
 
+    new Chart(id, { type: 'line', data, options })
+
+}
+
+// Companies Chart
+function setCompaniesChart(companies, id) {
+
+    const data = {
+        labels: companies.map(element => element.canonical_name),
+        datasets: [{
+            data: companies.map(element => element.count),
+            borderColor: styles.color.solids,
+            backgroundColor: styles.color.alphas,
+            borderWidth: 1
+        }]
+    }
+
+    const options = {
+        legend: {
+            display: false
+        }
+    }
+
+    new Chart(id, { type: 'horizontalBar', data, options })
+
+}
+
+// Jobs by location chart
+function setJobsByLocationChart(jobs, id) {
+
+    const data = {
+        labels: jobs.map(element => element.location.display_name),
+        datasets: [{
+            data: jobs.map(element => element.count),
+            borderColor: styles.color.solids,
+            backgroundColor: styles.color.alphas,
+            borderWidth: 1
+        }]
+    }
+
+    const options = {
+        legend: {
+            display: false
+        }
+    }
+
+
+    new Chart(id, { type: 'doughnut', data, options})
+
+}
+
+// Salary histogram chart 
+function setSalaryHistogram(salaryHistogram, id) {
+
+    const salaryHistogramEntries = Object.entries(salaryHistogram).sort()
+
+    const salaryHistogramKeys = []
+    const salaryHistogramValues = []
+
+    salaryHistogramEntries.forEach(([key, value]) => {
+        salaryHistogramKeys.push(key)
+        salaryHistogramValues.push(value)
+    })
+
+    const data = {
+        labels: salaryHistogramKeys,
+        datasets: [{
+            data: salaryHistogramValues,
+            backgroundColor: styles.color.alphas[1]
+        }]
+    }
+
+    options = {
+        legend: {
+            display: false
+        }
+    }
+    
     new Chart(id, { type: 'bar', data, options })
 
 }

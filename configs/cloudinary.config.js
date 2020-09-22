@@ -7,9 +7,7 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_KEY,
     api_secret: process.env.CLOUDINARY_SECRET
 })
-// CLOUDINARY_KEY=568747287494749
-// CLOUDINARY_SECRET=YulDiuKrh5SGdtatI5NppfGE2VM
-// CLOUDINARY_NAME=dfhcho5xi
+
 var storage = new CloudinaryStorage({
     cloudinary
 })

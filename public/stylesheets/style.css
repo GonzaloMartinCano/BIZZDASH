@@ -2,7 +2,7 @@ h1, h2, h3, span {
   font-weight: 900; }
 
 .navbar {
-  margin-bottom: 70px; }
+  margin-bottom: 40px; }
 
 #errorMsg {
   background-color: red;
@@ -40,5 +40,9 @@ h1, h2, h3, span {
 .profile .card-deck {
   margin-right: 0;
   margin-left: 0; }
+
+/* Dashboard page */
+.dashboard canvas {
+  max-height: 200px !important; }
 
 /*# sourceMappingURL=style.css.map */
