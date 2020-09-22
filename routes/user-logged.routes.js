@@ -14,19 +14,11 @@ const checkLoggedIn = (req, res, next) => {
 
         const userRegistered = true
         const looggin = true
-        res.render('profile', { user: req.user, userRegistered})
-
-    } else if (req.isAuthenticated()) {
-
-        navbar = 'navbarloggin'
-        next()
+        res.render('profile', { usertorender: req.user, userRegistered})
 
     } else {    
-        navbar = 'navbarloggout'
         next()
-
     }
-
 }
 
 
@@ -52,9 +44,9 @@ router.get('/:username', checkLoggedIn, (req, res, next) => {
 
     User
         .findOne({ username })                              // Retorna un objeto
-        .then(user => {
-            if (user)
-                res.render('profile', { user })
+        .then(usertorender => {
+            if (usertorender)
+                res.render('profile', { usertorender })
             else
                 res.render('index', { message: 'Usuario no encontrado, pruebe con otro nombre.' })
         })
