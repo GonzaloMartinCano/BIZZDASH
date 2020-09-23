@@ -7,8 +7,6 @@ router.get('/', (req, res) => res.render('index'))
 
 router.post('/', (req, res) => {
 
-    console.log(req.body)
-
     if (req.body.option === 'name') {
        
         let username = {}

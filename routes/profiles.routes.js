@@ -33,7 +33,7 @@ router.get('/:username', checkLoggedIn, (req, res, next) => {
                 res.render('profile', { usertorender})
             }
             else
-                res.render('index', { message: 'Usuario no encontrado, pruebe con otro nombre.' })
+                res.render('index', { message: 'User not found, try another name.' })
         })
 
         .catch(err => next(err))

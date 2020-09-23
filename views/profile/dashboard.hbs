@@ -1,8 +1,6 @@
 
 
 <div class="container">
-
-    <h1 class="h3 mb-4">WELCOME TO YOUR CUSTOMIZED BIZDASH</h1>
     
     <div class="d-flex align-items-center loader">
         <strong>Loading info...</strong>
@@ -10,6 +8,10 @@
     </div>
     
     <div class="row dashboard">
+
+        <h1 class="col-md-9 h3 mb-4">WELCOME TO YOUR CUSTOMIZED BIZDASH</h1>
+
+        <h4 class="col-md-3 mb-3">Latest job offers</h4>
 
         <div class="col-md-9">
             <div class="row">
@@ -94,12 +96,12 @@
 
         <aside class="col-md-3" >
 
-            <h4 class="mb-3">Latest job offers</h4>
+            
             <form>
-                <select name="searchJob">
+                {{!-- <select name="searchJob">
                     <option value="javascript">Javascript</option>
                     <option value="react">React</option>
-                </select>
+                </select> --}}
                 <input type="text" id="searchJob" placeholder="javascript, react, fullstack...">
             </form>
             <div class="row">
