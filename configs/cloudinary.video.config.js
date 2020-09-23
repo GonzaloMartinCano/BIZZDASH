@@ -9,9 +9,16 @@ cloudinary.config({
 })
 
 var storage = new CloudinaryStorage({
-    cloudinary
+    cloudinary,
+    params: {
+        allowedFormats: ['mp4', 'mp4'],
+        format: 'mp4',
+        resource_type: 'video'
+    },
 })
 
-const uploadCloud = multer({ storage });
+const uploadCloud = multer({ storage: storage, limits: { fieldSize: 25 * 1024 * 1024 }})
+
+// const uploadCloud = multer({ storage });
 
 module.exports = uploadCloud

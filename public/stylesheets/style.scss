@@ -19,6 +19,11 @@ h1, h2, h3, span {
   margin-top: 5px;
 }
 
+
+.listprojects {
+  max-height: 100px;
+  overflow: hidden;
+}
 .imglist{
   margin-top: 15px;
   margin-left: 10px;
@@ -82,4 +87,5 @@ h1, h2, h3, span {
 .dashboard canvas {
   max-height: 200px !important;
 }
+
 

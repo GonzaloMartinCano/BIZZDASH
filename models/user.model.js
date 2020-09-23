@@ -58,9 +58,9 @@ const userSchema = new Schema({
             trim: true
         }
     },
-    project: [{
+    projects: [{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Project'
     }]
 }, {
     timestamps: true

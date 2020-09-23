@@ -10,6 +10,14 @@ const projectsSchema = new Schema({
         type: String,
         trim: true
     },
+    video: {
+        type: 'String',
+        default: 'https://res.cloudinary.com/dfhcho5xi/video/upload/v1600894829/exjxwyhpomyeni6b0z08.mp4'
+    },
+    img : {
+        type: 'String',
+        default: 'https://cdn-images-1.listennotes.com/podcasts/the-official-project-censored-show-project-RNkeS2yQAFK.1400x1400.jpg'
+    },
     links: {
         gitHub: {
             type: String,
@@ -18,16 +26,6 @@ const projectsSchema = new Schema({
         web: {
             type: String,
             trim: true
-        },
-        media: {
-            img: {
-                type: 'String',
-                required: true,
-                default: 'https://cdn-images-1.listennotes.com/podcasts/the-official-project-censored-show-project-RNkeS2yQAFK.1400x1400.jpg'
-            },
-            video: {
-                type: 'String'
-            },
         }
     }
 }, {
