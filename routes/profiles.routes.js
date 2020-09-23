@@ -7,7 +7,6 @@ const Project = require('../models/project.model')
 
 const checkLoggedIn = (req, res, next) => {
 
-
     if (req.isAuthenticated() && req.user.username === req.params.username) {
 
         const userRegistered = true
@@ -21,8 +20,6 @@ const checkLoggedIn = (req, res, next) => {
         next()
     }
 }
-
-router.get('/dashboard/', checkLoggedIn, (req, res, next) => res.render('profile/dashboard'))
 
 router.get('/:username', checkLoggedIn, (req, res, next) => {
 

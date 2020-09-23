@@ -1,87 +1,113 @@
 
 
-<div class="container dashboard">
+<div class="container">
 
     <h1 class="h3 mb-4">WELCOME TO YOUR CUSTOMIZED BIZDASH</h1>
     
-    <div class="row">
+    <div class="d-flex align-items-center loader">
+        <strong>Loading info...</strong>
+        <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+    </div>
+    
+    <div class="row dashboard">
 
-        <div class="col-md-6">
-
-            <!-- Bar Chart -->
-            <div class="card shadow mb-4">
-            
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-dark">Salary</h6>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-6">
+                
+                    <!-- Bar Chart -->
+                    <div class="card shadow mb-4">
+                
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">Salary</h6>
+                        </div>
+                
+                        <div class="card-body">
+                
+                            <canvas id="salaryChart"></canvas>
+                
+                            <hr>
+                            <small class="text-muted">Historial average salary</small>
+                        </div>
+                    </div>
+                
                 </div>
-            
-                <div class="card-body">
-
-                    <canvas id="salaryChart"></canvas>
-            
-                    <hr>
-                    <small class="text-muted">Historial average salary</small>
+                
+                <div class="col-md-6">
+                
+                    <!-- Area Chart -->
+                    <div class="card shadow mb-4">
+                
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">Jobs by location</h6>
+                        </div>
+                
+                        <div class="card-body">
+                
+                            <canvas id="jobsByLocationChart"></canvas>
+                
+                            <hr>
+                            <small class="text-muted">Number of jobs advertised</small>
+                
+                        </div>
+                    </div>
+                
+                </div>
+                
+                <!-- Pie Chart -->
+                <div class="col-md-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">Current distribution of salaries</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                
+                            <canvas id="histogramSalaryChart"></canvas>
+                
+                            <hr>
+                            <small class="text-muted">Top five companies by number of vacancies.</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Donut Chart -->
+                <div class="col-md-6">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">Top companies for developers</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                
+                            <canvas id="companiesChart"></canvas>
+                
+                            <hr>
+                            <small class="text-muted">Top five companies by number of vacancies.</small>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
 
-        <div class="col-md-6">
-        
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
-        
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-dark">Jobs by location</h6>
-                </div>
-        
-                <div class="card-body">
+        <aside class="col-md-3" >
 
-                    <canvas id="jobsByLocationChart"></canvas>
-        
-                    <hr>
-                    <small class="text-muted">Number of jobs advertised</small>
-        
+            <h4 class="mb-3">Latest job offers</h4>
+            <form>
+                <select name="searchJob">
+                    <option value="javascript">Javascript</option>
+                    <option value="react">React</option>
+                </select>
+                <input type="text" id="searchJob" placeholder="javascript, react, fullstack...">
+            </form>
+            <div class="row">
+                <div class="col-md-12" id="jobs-list-container">
+
                 </div>
             </div>
-        
-        </div>
-
-        <!-- Pie Chart -->
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-dark">Current distribution of salaries</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-
-                    <canvas id="histogramSalaryChart"></canvas>
-
-                    <hr>
-                    <small class="text-muted">Top five companies by number of vacancies.</small>
-                </div>
-            </div>
-        </div>
-
-        <!-- Donut Chart -->
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-dark">Top companies for developers</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-        
-                    <canvas id="companiesChart"></canvas>
-        
-                    <hr>
-                    <small class="text-muted">Top five companies by number of vacancies.</small>
-                </div>
-            </div>
-        </div>
+        </aside>
 
     </div>
 
