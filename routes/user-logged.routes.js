@@ -3,10 +3,6 @@ const router = express.Router()
 
 const User = require('../models/user.model')
 
-// const checkLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.render('auth/login', { message: 'Desautorizado, incia sesión para continuar' })
-
-let navbar = 'navbarloggout'
-
 const checkLoggedIn = (req, res, next) => {
 
 
@@ -21,21 +17,6 @@ const checkLoggedIn = (req, res, next) => {
     }
 }
 
-
-// const checkRole = rolesToCheck => (req, res, next) => req.isAuthenticated() && rolesToCheck.includes(req.user.role) ? next() : res.render('auth/login', { message: 'Desautorizado, no tienes permisos para ver eso.' })
-
-// const checkRole = rolesToCheck => {
-//     return (req, res, next) => {
-//         if (req.isAuthenticated() && rolesToCheck.includes(req.user.role)) {
-//             next()
-//         }
-//         else {
-//             res.render('auth/login', { message: 'Desautorizado, no tienes permisos para ver eso.' })
-//         }
-//     }
-// }
-
-
 router.get('/dashboard/', checkLoggedIn, (req, res, next) => res.render('profile/dashboard'))
 
 router.get('/:username', checkLoggedIn, (req, res, next) => {
@@ -43,7 +24,7 @@ router.get('/:username', checkLoggedIn, (req, res, next) => {
     const username = req.params.username
 
     User
-        .findOne({ username })                              // Retorna un objeto
+        .findOne({ username })                            
         .then(usertorender => {
             if (usertorender)
                 res.render('profile', { usertorender })

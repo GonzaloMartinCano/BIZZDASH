@@ -17,11 +17,10 @@ router.post('/upload', cdnUploader.single('imageInput'), (req, res) => {
         linkedin: req.body.linkedin
     }
 
-   // let profileImg = req.file.path
     let profileImg = `${req.user.profileImg}`
     if (req.file)
         profileImg = req.file.path
-     console.log(profileImg)
+    
     User.findByIdAndUpdate( req.user.id, {name, description, links, profileImg})
         .then(() => res.redirect(`/${req.user.username}`))
         .catch(err => console.log('Hubo un error:', err))
@@ -40,7 +39,7 @@ router.post('/updateproject', cdnUploader.single('videoInput'), (req, res) => {
             video: req.file.path
         }
     }
-    console.log("------------------", {name, description, media} )
+   
     User.findByIdAndUpdate( req.user.id, {name, description, media})
     .then(() => res.redirect(`/${req.user.username}`))
     .catch(err => console.log('Hubo un error:', err))

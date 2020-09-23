@@ -16,7 +16,6 @@ router.post('/', (req, res) => {
             username = { username: req.body.username }
         
         User.find(username)
-            //.then((users) => console.log(users))
             .then((users) => res.render('index', { users }))
             .catch((err) => console.log(err))
     }

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const { schema } = require('./project.model')
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
@@ -31,16 +32,13 @@ const userSchema = new Schema({
     },
     phone: {
         type: Number,
-        //required: true,
         trim: true
     },
     country: {
-        type: String,
-        //required: true
+        type: String
     },
     city: {
-        type: String,
-        //require: true
+        type: String
     },
     interest: {
         type: [String],
@@ -48,7 +46,6 @@ const userSchema = new Schema({
     },
     description: {
         type: String,
-        //required: true,
         trim: true
     },
     links: {
@@ -60,7 +57,11 @@ const userSchema = new Schema({
             type: String,
             trim: true
         }
-    }
+    },
+    project: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 }, {
     timestamps: true
 })
