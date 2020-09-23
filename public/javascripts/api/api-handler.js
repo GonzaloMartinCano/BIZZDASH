@@ -14,11 +14,15 @@ class JobApiHandler {
     }
 
     getJobCategories() {
+
         return this.app.get(`gb/categories?app_id=${app_id}&app_key=${app_key}&&content-type=application/json`)
+
     }
 
     getSalaryHistory() {
+
         return this.app.get(`gb/history?app_id=${app_id}&app_key=${app_key}&location0=uk&category=it-jobs&content-type=application/json`)
+
     }
 
     getSalaryHistogram(category) {
@@ -31,9 +35,9 @@ class JobApiHandler {
     getJobs(category) {
 
         const page = 1
-        const resultPerPage = 10
+        const resultPerPage = 3
 
-        return this.app.get(`gb/search/${page}?app_id=${app_id}&app_key=${app_key}&results_per_page=${resultPerPage}&title_only=${category}&&content-type=application/json`)
+        return this.app.get(`gb/search/${page}?app_id=${app_id}&app_key=${app_key}&results_per_page=${resultPerPage}&title_only=${category}&sort_by=date&content-type=application/json`)
     }
 
     getJobsByLocation() {
@@ -43,7 +47,9 @@ class JobApiHandler {
     }
 
     getTopCompanies() {
+
         return this.app.get(`gb/top_companies?app_id=${app_id}&app_key=${app_key}&what=developer&category=it-jobs&content-type=application/json`)
+
     }
 
 }

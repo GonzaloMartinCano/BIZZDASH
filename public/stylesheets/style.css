@@ -58,7 +58,26 @@ h1, h2, h3, span {
   margin-left: 0; }
 
 /* Dashboard page */
+.running .loader {
+  display: none !important; }
+
+.dashboard {
+  opacity: 0; }
+
+.running .dashboard {
+  opacity: 1; }
+
 .dashboard canvas {
   max-height: 200px !important; }
+
+.dashboard #jobs-list-container ul {
+  list-style: none;
+  padding: 0; }
+
+.dashboard #jobs-list-container .card-body {
+  padding: 10px; }
+
+.dashboard #jobs-list-container .card-body small {
+  margin-left: 10%; }
 
 /*# sourceMappingURL=style.css.map */

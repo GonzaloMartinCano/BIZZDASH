@@ -5,19 +5,16 @@ const User = require('../models/user.model')
 
 const checkLoggedIn = (req, res, next) => {
 
-
     if (req.isAuthenticated() && req.user.username === req.params.username) {
 
         const userRegistered = true
-        const looggin = true
+        
         res.render('profile', { usertorender: req.user, userRegistered})
 
     } else {    
         next()
     }
 }
-
-router.get('/dashboard/', checkLoggedIn, (req, res, next) => res.render('profile/dashboard'))
 
 router.get('/:username', checkLoggedIn, (req, res, next) => {
 
