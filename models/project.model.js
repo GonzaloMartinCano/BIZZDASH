@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { schema } = require('./user.model')
 const Schema = mongoose.Schema
 
 const projectsSchema = new Schema({
@@ -28,12 +29,12 @@ const projectsSchema = new Schema({
             video: {
                 type: 'String'
             },
-        },
-        tags: {
-            type: [String],
-            enum: ['HTML5', 'CSS', 'JavaScript', 'Node.js', 'React']
         }
     },
+    user: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 }, {
     timestamps: true
 })
