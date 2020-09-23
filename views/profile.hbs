@@ -3,7 +3,7 @@
    
     <div class="row">
 
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
@@ -28,7 +28,7 @@
             
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-4">
             <div class="card mb-3">
                 <div class="card-body">
                     
@@ -37,7 +37,7 @@
                             <h6 class="mb-0">Full Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {{usertorender.username}}
+                            {{usertorender.name}}
                         </div>
                     </div>
                     
@@ -46,14 +46,57 @@
                 </div>
             </div>
         </div>
+   
+
+    <div class="col-md-5">
+            <div class="card mb-3">
+                <div class="card-body">
+                    
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">PROJECT LIST</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{usertorender.name}}
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                        <ul>
+                            <li>Android</li>
+                            <li>Android</li>
+                            <li>Android</li>
+                            <li>Android</li>
+
+                        </ul>
+                        </div>
+                        <div class="col-6">
+                        <ul>
+                            <li>Android</li>
+                            <li>Android</li>
+                            <li>Android</li>
+                            <li>Android</li>
+
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+     </div>
+
+
     <div class="row">
           <div class="card-deck">
             
-            {{> projects}}
-            {{> projects}}
-            {{> projects}}
-            {{> projects}}
+            {{#each usertorender.projects as |project|}}
+            
+                {{> projects parameter = project}}
+
+            {{/each}}
           </div>
 
     </div>
@@ -62,6 +105,8 @@
         <div class="col-md-4">
             <div class="card mt-3">
                 <ul class="list-group list-group-flush">
+
+                <a href="{{usertorender.links.linkedin}}" target="_blank">
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 class="mb-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -75,9 +120,10 @@
                             </svg>
                             <span>Linkedin</span>
                         </h6>
-                        <span class="text-secondary">https://bootdey.com</span>
+                        <span class="text-secondary">{{usertorender.links.linkedin}}</span>
                     </li>
-            
+                </a>
+                   <a href="{{usertorender.links.gitHub}}" target="_blank">
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 class="mb-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -89,8 +135,10 @@
                             </svg>
                             <span>Github</span>
                         </h6>
-                        <span class="text-secondary">bootdey</span>
+                        <span class="text-secondary">{{usertorender.links.gitHub}}</span>
                     </li>
+                   </a> 
+                  
             
                 </ul>
             </div>
@@ -98,8 +146,6 @@
     </div>
 
 </main>
-
-<!-- Button trigger modal -->
 
 <!-- Modal EDIT PROFILE-->
 <div class="modal fade" id="editprofile" data-backdrop="static" data-keyboard="false" tabindex="-1"
@@ -117,22 +163,22 @@
             <form action="/upload" method="POST"  enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name-input">Name</label>
-                    <input name="name" type="text" placeholder="{{usertorender.username}}" value="{{usertorender.username}}" class="form-control" id="name-input">
+                    <input name="name" type="text" placeholder="{{usertorender.username}}" value="{{usertorender.name}}" class="form-control" id="name-input">
                 </div>
                 <div class="form-group">
                     <label for="description-input">Description</label>
                     <input name="description" type="text" placeholder="{{usertorender.description}}" value="{{usertorender.description}}" class="form-control" id="description-input">
                 </div>
                 <div class="form-group">
-                    <label for="description-input">Git Hub</label>
-                    <input name="description" type="text" placeholder="{{usertorender.link.github}}" value="{{usertorender.link.github}}" class="form-control" id="description-input">
+                    <label for="gitHub-input">Git Hub</label>
+                    <input name="gitHub" type="text" placeholder="{{usertorender.links.gitHub}}" value="{{usertorender.links.gitHub}}" class="form-control" id="gitHub-input">
                 </div>
                 <div class="form-group">
-                    <label for="description-input">Linkedin</label>
-                    <input name="description" type="text" placeholder="{{usertorender.link.linkedin}}" value="{{usertorender.link.linkedin}}" class="form-control" id="description-input">
+                    <label for="linkedin-input">Linkedin</label>
+                    <input name="linkedin" type="text" placeholder="{{usertorender.links.linkedin}}" value="{{usertorender.links.linkedin}}" class="form-control" id="linkedin-input">
                 </div>
-                <input type="text" name="nameInput" placeholder="nombre de la imagen"><br><br>
-                <input type="file" name="imageInput"><br><br>
+                <input type="text" name="nameInput" placeholder="{{usertorender.profileImg}}" value="{{usertorender.profileImg}}"><br><br>
+                <input type="file" name="imageInput" value="{{usertorender.profileImg}}"><br><br>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -1,29 +1,28 @@
    
 <div class="card col-md-3">
-    {{!-- <video src="{{user.projects.[0].media.video}}" controls>
-    Tu navegador no implementa el elemento <code>video</code>.
-    </video> --}}
     <div class="embed-responsive embed-responsive-21by9">
-        <iframe class="embed-responsive-item" src="{{usertorender.projects.[0].media.video}}"></iframe>
+        <iframe class="embed-responsive-item" src="{{parameter.media.video}}"></iframe>
     </div>
                     <div class="card-body">
-            <h5 class="card-title">{{usertorender.projects.[0].name}}</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.
+            <h5 class="card-title">{{parameter.name}}</h5>
+            <p class="card-text">{{parameter.description}}
             </p>
 
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
-                Ver detalles
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#projectDetailsModal">
+                See Details
+            </button>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#projectEditModal">
+                Edit Project
             </button>
 
         </div>
     </div>
 
 
-          {{!-- PROJECTS MODAL --}}
+{{!-- PROJECTS MODAL --}}
 
 
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="projectDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -36,14 +35,13 @@
 
           {{!-- MODAL BODY --}}
         
-    <h5 class="card-title">{{usertorender.projects.[0].name}}</h5>
+    <h5 class="card-title">{{parameter.name}}</h5>
 
     <div class="embed-responsive embed-responsive-21by9">
-        <iframe class="embed-responsive-item" src="{{usertorender.projects.[0].media.video}}"></iframe>
+        <iframe class="embed-responsive-item" src="{{parameter.media.video}}"></iframe>
     </div>
 
-    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.
+    <p class="card-text">{{parameter.description}}
             </p>
 
 
@@ -52,6 +50,49 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+{{!-- EDIT MODAL --}}
+
+<div class="modal fade bd-example-modal-lg" id="projectEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">PROJECT EDIT</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+ {{!-- MODAL BODY --}}
+        
+      <div class="modal-body">
+
+
+            <form action="/updateproject" method="POST"  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name-input">Project Name</label>
+                    <input name="name" type="text" placeholder="{{parameter.name}}" value="{{parameter.name}}" class="form-control" id="name-input">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Description</label>
+                    <input name="description" type="text" placeholder="{{parameter.description}}" value="{{parameter.description}}" class="form-control" id="description-input">
+                </div>
+                <input type="text" name="nameInput" placeholder="Video url: {{parameter.media.video}}" value="{{parameter.media.video}}"><br><br>
+                <input type="file" name="videoInput" value="{{parameter.media.video}}"><br><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-dark">Confirm changes</button>
+            </div>
+            </form>
+
+
+      
     </div>
   </div>
 </div>
