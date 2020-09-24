@@ -14,9 +14,9 @@
 
                             {{#if userRegistered}}
 
-                                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#editprofile">
-                                                Edit Profile
-                                            </button>
+                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#editprofile">
+                                Edit Profile
+                            </button>
 
                             {{/if }}
                             
@@ -34,7 +34,7 @@
                     
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Full Name</h6>
+                            <h6 class="mb-0">{{usertorender.username}}</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{usertorender.name}}
@@ -70,76 +70,78 @@
 
                     <hr>
    {{!-- LIST PROJECTS --}}     
-                    <div class="row listprojectscardscroll">
+        <div class="row listprojectscardscroll">
                         
+                {{#if userRegistered}}
         
                     {{#each usertorender.projects }}
-                     <div class="col-3">
-            {{!-- LINK TO OPEN MODAL & SEE DETAILS --}}
+                        <div class="col-4">
+                        {{!-- LINK TO OPEN MODAL & SEE DETAILS --}}
+                       
+
+                        <a type="button" class="" data-toggle="modal" data-target="#edit{{id}}">
+                            <svg width="0.7em" height="0.7em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </a>
+
+                        <a type="button" class="" data-toggle="modal" data-target="#deleteproject{{id}}">
+                            <svg width="0.7em" height="0.7em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                            </svg>
+                        </a>
+
                         <a type="button" class="btn btn-light" data-toggle="modal" data-target="#details{{id}}">
                             {{name}}
                         </a>
-
-                        <div class="modal fade bd-example-modal-lg" id="details{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">PROJECT DETAILS</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
                         </div>
-                        <div class="modal-body">
-
-                            {{!-- MODAL BODY --}}
-                            
-                        <h5 class="card-title">{{name}}</h5>
-
-                        <div class="embed-responsive embed-responsive-21by9">
-                            <iframe class="embed-responsive-item" src="{{video}}"></iframe>
-                        </div>
-
-                        <p class="card-text">{{description}}
-                                </p>
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                        </div>
+                        
                     {{/each}}
 
-                    
+                {{else}}
+
+                    {{#each usertorender.projects }}
+                    <div class="col-3">
+                            {{!-- LINK TO OPEN MODAL & SEE DETAILS --}}
+                    <a type="button" class="btn btn-light" data-toggle="modal" data-target="#details{{id}}">
+                        {{name}}
+                    </a>
+
+                    </div>
+                    {{/each}}
+
+                {{/if}}    
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     </div>
+     
+    
 
 <!-- PROJECTS CARDS -->
 
-    <div class="row lineprojects shadow justify-content-center">
+    <div class="row lineprojects justify-content-center">
             
       
     
         {{#if userRegistered}}
             {{#each usertorender.projects }}
             <div class="card col-md-3 projectcard">
+  
                 {{> projects}}
 
-                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#edit{{id}}">
+                <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#edit{{id}}">
                     Edit Project
                 </button>
+   
             </div>
+            
             {{/each}}
         {{else}}
             {{#each usertorender.projects }}
-            <div class="card col-md-3">
+            <div class="card col-md-3 projectcard">
                 {{> projects}}
             </div>
             {{/each}}
@@ -152,7 +154,7 @@
     </div>
 
 <!-- CARD LINKS PROFILE-->
-    <div class="row">
+    <div class="row cardlink">
         <div class="col-md-4">
             <div class="card mt-3">
                 <ul class="list-group list-group-flush">
@@ -196,7 +198,7 @@
         </div>
     </div>
 
-</main>
+
 
 <!-- Modal EDIT PROFILE-->
 <div class="modal fade" id="editprofile" data-backdrop="static" data-keyboard="false" tabindex="-1"
@@ -220,39 +222,6 @@
                     <label for="description-input">Description</label>
                     <input name="description" type="text" placeholder="{{usertorender.description}}" value="{{usertorender.description}}" class="form-control" id="description-input">
                 </div>
-
-                <div class="form-group">
-                    <label for="headline-input">Headline</label>
-                    <input name="headline" type="text" placeholder="{{usertorender.headline}}"
-                        value="{{usertorender.headline}}" class="form-control" id="headline-input">
-                </div>
-
-                {{!-- <label>Experience</label>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="frontend" value="frontend" class="custom-control-input" id="frontend">
-                                <label class="custom-control-label" for="frontend">Frontend </label>
-                            </div>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="backend" value="backend" id="backend">
-                                <label class="custom-control-label" for="backend">Backend</label>
-                            </div>
-                        </div>
-                        
-                        <div class="col-6">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="fullstack">
-                                <label class="custom-control-label" for="fullstack">FullStack</label>
-                            </div>
-                        </div>
-                        
-                    </div>
- 
-                </div> --}}
-
                 <div class="form-group">
                     <label for="gitHub-input">Git Hub</label>
                     <input name="gitHub" type="text" placeholder="{{usertorender.links.gitHub}}" value="{{usertorender.links.gitHub}}" class="form-control" id="gitHub-input">
@@ -315,3 +284,12 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+</main>

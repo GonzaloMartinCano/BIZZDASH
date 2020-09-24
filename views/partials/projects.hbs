@@ -12,9 +12,8 @@
                 See Details
             </button>
 
-          
+                </div>
 
-        </div>
  
 
 
@@ -40,10 +39,26 @@
         <iframe class="embed-responsive-item" src="{{video}}"></iframe>
     </div>
 
-    <p class="card-text">{{description}}
+    <p class="card-text" style="margin-top: 20px;">{{description}}
             </p>
 
+    <hr>
 
+    <a href="https://github.com/Zalillo18/business-dash" target="_blank">
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-github mr-2 icon-inline">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            <span>Github</span>
+                        </h6>
+                        <span class="text-secondary">{{links.gitHub}}</span>
+                    </li>
+                   </a> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,3 +109,67 @@
     </div>
   </div>
 </div>
+
+
+{{!-- Modal DELETE PROJECT --}}
+
+<div class="modal fade bd-example-modal-lg" id="deleteproject{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">DELETE PROJECT? </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+ {{!-- MODAL BODY --}}
+        
+      <div class="modal-body">
+
+
+            <form action="/deleteproject/{{id}}" method="POST"  enctype="multipart/form-data">
+              <h5>Are you sure to delete {{name}} project? </h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-dark">Confirm changes</button>
+            </div>
+            </form>
+
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+   {{!-- <label>Experience</label>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="frontend" value="frontend" class="custom-control-input" id="frontend">
+                                <label class="custom-control-label" for="frontend">Frontend </label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="backend" value="backend" id="backend">
+                                <label class="custom-control-label" for="backend">Backend</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-6">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="fullstack">
+                                <label class="custom-control-label" for="fullstack">FullStack</label>
+                            </div>
+                        </div>
+                        
+                    </div>
+ 
+                </div> --}}
