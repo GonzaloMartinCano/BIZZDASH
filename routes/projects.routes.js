@@ -37,18 +37,14 @@ router.post('/createproject', cdnUploader.single('videoInput'), (req, res) => {
 router.post('/updateproject/:id', cdnUploader.single('videoInput'), (req, res) => {
 
     const { name, description } = req.body
-    let video = ''
-    Project.findById(req.params.id)
-        .then(result => {
-            video = result.video
-    })
-    
-    if (req.file) 
-        video =  req.file.path
-   
-    Project.findByIdAndUpdate( req.params.id, {name, description, video})
-    .then(() => res.redirect(`/${req.user.username}`))
-    .catch(err => console.log('Hubo un error:', err))
+    let videotoupdate = ''
+    if (req.file)
+        videotoupdate = req.file.path
+    else
+        videotoupdate = req.body.nameInput
+    Project.findByIdAndUpdate( req.params.id, {name, description, video: videotoupdate})
+        .then(() => res.redirect(`/${req.user.username}`))
+        .catch(err => console.log('Hubo un error:', err))
 })
 
 router.post('/deleteproject/:id', cdnUploader.single('videoInput'), (req, res) => {
