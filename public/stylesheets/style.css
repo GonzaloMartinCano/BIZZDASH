@@ -111,8 +111,8 @@ h1, h2, h3, span {
   font-size: 0.25rem; }
 
 .lineprojects {
-  min-height: 300px;
-  max-height: 350px;
+  min-height: 390px;
+  max-height: 390px;
   overflow-y: scroll; }
 
 .projectcard {
@@ -120,6 +120,9 @@ h1, h2, h3, span {
   margin-right: 60px;
   margin-left: 80px;
   width: 300px; }
+
+iframe {
+  margin-top: 20px; }
 
 /* Dashboard page */
 .loader {

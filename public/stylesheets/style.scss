@@ -139,11 +139,9 @@ h1, h2, h3, span {
 }
 
 
-
-
 .lineprojects {
-  min-height: 300px;
-  max-height: 350px;
+  min-height: 390px;
+  max-height: 390px;
   overflow-y: scroll;
 } 
 
@@ -154,6 +152,9 @@ h1, h2, h3, span {
   width: 300px;
 }
 
+iframe {
+  margin-top: 20px;
+}
 /* Dashboard page */
 
 .loader {

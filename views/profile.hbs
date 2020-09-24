@@ -14,9 +14,9 @@
 
                             {{#if userRegistered}}
 
-                                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#editprofile">
-                                                Edit Profile
-                                            </button>
+                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#editprofile">
+                                Edit Profile
+                            </button>
 
                             {{/if }}
                             
@@ -80,37 +80,8 @@
                             {{name}}
                         </a>
 
-                        <div class="modal fade bd-example-modal-lg" id="details{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">PROJECT DETAILS</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
                         </div>
-                        <div class="modal-body">
-
-                            {{!-- MODAL BODY --}}
-                            
-                        <h5 class="card-title">{{name}}</h5>
-
-                        <div class="embed-responsive embed-responsive-21by9">
-                            <iframe class="embed-responsive-item" src="{{video}}"></iframe>
-                        </div>
-
-                        <p class="card-text">{{description}}
-                                </p>
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                        </div>
+                        
                     {{/each}}
 
                     
@@ -119,7 +90,8 @@
             </div>
         </div>
     </div>
-     </div>
+     
+    
 
 <!-- PROJECTS CARDS -->
 
@@ -130,16 +102,19 @@
         {{#if userRegistered}}
             {{#each usertorender.projects }}
             <div class="card col-md-3 projectcard">
+  
                 {{> projects}}
 
-                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#edit{{id}}">
+                <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#edit{{id}}">
                     Edit Project
                 </button>
+   
             </div>
+            
             {{/each}}
         {{else}}
             {{#each usertorender.projects }}
-            <div class="card col-md-3">
+            <div class="card col-md-3 projectcard">
                 {{> projects}}
             </div>
             {{/each}}
@@ -196,7 +171,7 @@
         </div>
     </div>
 
-</main>
+
 
 <!-- Modal EDIT PROFILE-->
 <div class="modal fade" id="editprofile" data-backdrop="static" data-keyboard="false" tabindex="-1"
@@ -282,3 +257,5 @@
     </div>
   </div>
 </div>
+
+</main>
