@@ -40,9 +40,14 @@ const userSchema = new Schema({
     city: {
         type: String
     },
-    interest: {
+    headline: {
+        type: String,
+        trim: true,
+        default: 'Headline'
+    },
+    experience: {
         type: [String],
-        enum: ['Javascript', 'React', 'Front-End', 'Back-End', 'Fullstack']
+        enum: ['Javascript', 'React', 'Node', 'Front-End', 'Back-End', 'Fullstack']
     },
     description: {
         type: String,

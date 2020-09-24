@@ -11,7 +11,10 @@ const User = require('../models/user.model')
 
 router.post('/edituser', cdnUploader.single('imageInput'), (req, res) => {
 
-    const { name, description} = req.body
+    const { name, description, headline } = req.body
+
+    console.log(req.body)
+
     const links = {
         gitHub: req.body.gitHub,
         linkedin: req.body.linkedin
@@ -21,7 +24,7 @@ router.post('/edituser', cdnUploader.single('imageInput'), (req, res) => {
     if (req.file)
         profileImg = req.file.path
     
-    User.findByIdAndUpdate( req.user.id, {name, description, links, profileImg})
+    User.findByIdAndUpdate( req.user.id, {name, description, links, profileImg, headline})
         .then(() => res.redirect(`/${req.user.username}`))
         .catch(err => console.log('Hubo un error:', err))
 })

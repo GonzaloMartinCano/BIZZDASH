@@ -1,15 +1,11 @@
-body {
-  background-color: #f0e9e9; }
-
 h1, h2, h3, span {
   font-weight: bold; }
 
 .navbar {
   margin-bottom: 40px; }
 
-<<<<<<< HEAD
 .navbar img {
-  height: 50px; }
+  height: 40px; }
 
 #errorMsg {
   background-color: red;
@@ -23,8 +19,6 @@ h1, h2, h3, span {
   max-height: 100px;
   overflow: hidden; }
 
-=======
->>>>>>> 93cc07ed1a5f1d1c96596341a4e4aab891b39d74
 .imglist {
   margin-top: 15px;
   margin-left: 10px; }
@@ -64,7 +58,7 @@ h1, h2, h3, span {
   background-clip: border-box;
   border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: .25rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
 
 .profile h6 span {
   vertical-align: bottom; }
@@ -73,14 +67,13 @@ h1, h2, h3, span {
   margin-right: 0;
   margin-left: 0; }
 
-<<<<<<< HEAD
 .profile a {
   color: black; }
 
 .profile a:hover {
   text-decoration: none;
   color: black; }
-=======
+
 .profile .card-body {
   flex: 1 1 auto;
   min-height: 1px;
@@ -124,7 +117,6 @@ h1, h2, h3, span {
   margin-right: 60px;
   margin-left: 80px;
   width: 300px; }
->>>>>>> 93cc07ed1a5f1d1c96596341a4e4aab891b39d74
 
 /* Dashboard page */
 .loader {
