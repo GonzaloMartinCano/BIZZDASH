@@ -34,7 +34,7 @@
                     
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Full Name</h6>
+                            <h6 class="mb-0">{{usertorender.username}}</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{usertorender.name}}
@@ -70,16 +70,14 @@
 
                     <hr>
    {{!-- LIST PROJECTS --}}     
-                    <div class="row listprojectscardscroll">
+        <div class="row listprojectscardscroll">
                         
                 {{#if userRegistered}}
         
                     {{#each usertorender.projects }}
-                        <div class="col-3">
+                        <div class="col-4">
                         {{!-- LINK TO OPEN MODAL & SEE DETAILS --}}
-                        <a type="button" class="btn btn-light" data-toggle="modal" data-target="#details{{id}}">
-                            {{name}}
-                        </a>
+                       
 
                         <a type="button" class="" data-toggle="modal" data-target="#edit{{id}}">
                             <svg width="0.7em" height="0.7em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -94,6 +92,9 @@
                             </svg>
                         </a>
 
+                        <a type="button" class="btn btn-light" data-toggle="modal" data-target="#details{{id}}">
+                            {{name}}
+                        </a>
                         </div>
                         
                     {{/each}}
@@ -121,7 +122,7 @@
 
 <!-- PROJECTS CARDS -->
 
-    <div class="row lineprojects shadow justify-content-center">
+    <div class="row lineprojects justify-content-center">
             
       
     
@@ -153,7 +154,7 @@
     </div>
 
 <!-- CARD LINKS PROFILE-->
-    <div class="row">
+    <div class="row cardlink">
         <div class="col-md-4">
             <div class="card mt-3">
                 <ul class="list-group list-group-flush">
@@ -200,11 +201,89 @@
 
 
 <!-- Modal EDIT PROFILE-->
+<div class="modal fade" id="editprofile" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edit profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
 
+            <form action="/edituser" method="POST"  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name-input">Name</label>
+                    <input name="name" type="text" placeholder="{{usertorender.username}}" value="{{usertorender.name}}" class="form-control" id="name-input">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Description</label>
+                    <input name="description" type="text" placeholder="{{usertorender.description}}" value="{{usertorender.description}}" class="form-control" id="description-input">
+                </div>
+                <div class="form-group">
+                    <label for="gitHub-input">Git Hub</label>
+                    <input name="gitHub" type="text" placeholder="{{usertorender.links.gitHub}}" value="{{usertorender.links.gitHub}}" class="form-control" id="gitHub-input">
+                </div>
+                <div class="form-group">
+                    <label for="linkedin-input">Linkedin</label>
+                    <input name="linkedin" type="text" placeholder="{{usertorender.links.linkedin}}" value="{{usertorender.links.linkedin}}" class="form-control" id="linkedin-input">
+                </div>
+                <input type="text" name="nameInput" placeholder="{{usertorender.profileImg}}" value="{{usertorender.profileImg}}"><br><br>
+                <input type="file" name="imageInput" value="{{usertorender.profileImg}}"><br><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-dark">Confirm changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 
 <!-- Modal ADD PROJECT-->
+
+<div class="modal fade bd-example-modal-lg" id="createproject" tabindex="-1" role="dialog" aria-labelledby="createproject" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">PROJECT EDIT</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+ {{!-- MODAL BODY --}}
+        
+      <div class="modal-body">
+
+
+            <form action="/createproject" method="POST"  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name-input">Project Name</label>
+                    <input name="name" type="text" placeholder="" value="" class="form-control" id="name-input">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Description</label>
+                    <input name="description" type="text" placeholder="" value="" class="form-control" id="description-input">
+                </div>
+                <input type="text" name="fileUrl" placeholder="" value=""><br><br>
+                <input type="file" name="videoInput"><br><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-dark">Confirm changes</button>
+            </div>
+            </form>
+
+
+      
+    </div>
+  </div>
+</div>
 
 
 

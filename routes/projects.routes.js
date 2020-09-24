@@ -25,7 +25,8 @@ router.post('/createproject', cdnUploader.single('videoInput'), (req, res) => {
                     let newId = project.id
                     newProjects.push(newId)
                     User.findByIdAndUpdate(req.user, { projects: newProjects })
-                        .then(() =>  res.render('profile', { usertorender: req.user, userRegistered}))
+                        .then(() =>  res.redirect(`/${req.user.username}`))
+                        .catch(err => console.log(err))
                 })
                 .catch(err => console.log(err))
         }) 
@@ -36,8 +37,12 @@ router.post('/createproject', cdnUploader.single('videoInput'), (req, res) => {
 router.post('/updateproject/:id', cdnUploader.single('videoInput'), (req, res) => {
 
     const { name, description } = req.body
-
-    let video = `${req.user.video}`
+    let video = ''
+    Project.findById(req.params.id)
+        .then(result => {
+            video = result.video
+    })
+    
     if (req.file) 
         video =  req.file.path
    
@@ -45,6 +50,17 @@ router.post('/updateproject/:id', cdnUploader.single('videoInput'), (req, res) =
     .then(() => res.redirect(`/${req.user.username}`))
     .catch(err => console.log('Hubo un error:', err))
 })
+
+router.post('/deleteproject/:id', cdnUploader.single('videoInput'), (req, res) => {
+
+   
+    Project.findByIdAndRemove( req.params.id)
+    .then(() => res.redirect(`/${req.user.username}`))
+    .catch(err => console.log('Hubo un error:', err))
+})
+
+
+
 
 module.exports = router
 
