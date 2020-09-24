@@ -1,20 +1,11 @@
+body {
+  background-color: #f0e9e9; }
+
 h1, h2, h3, span {
   font-weight: 900; }
 
 .navbar {
   margin-bottom: 40px; }
-
-#errorMsg {
-  background-color: red;
-  color: white;
-  font-weight: 400;
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 5px; }
-
-.listprojects {
-  max-height: 100px;
-  overflow: hidden; }
 
 .imglist {
   margin-top: 15px;
@@ -31,6 +22,14 @@ h1, h2, h3, span {
 
 .imglist p {
   margin-top: 12px; }
+
+#errorMsg {
+  background-color: red;
+  color: white;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 5px; }
 
 /* Profile page */
 .profile .card img {
@@ -49,17 +48,56 @@ h1, h2, h3, span {
   border-radius: .25rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
 
-.profile .card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1rem; }
-
 .profile h6 span {
   vertical-align: bottom; }
 
 .profile .card-deck {
   margin-right: 0;
   margin-left: 0; }
+
+.profile .card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem; }
+
+.profileinfo {
+  min-height: 280px;
+  max-height: 280px; }
+
+.descriptioncard {
+  min-height: 280px;
+  max-height: 280px; }
+
+.descriptioncard p {
+  margin-left: 20px;
+  width: 100%;
+  max-height: 190px;
+  min-height: 190px;
+  overflow-y: scroll; }
+
+.listprojectscard {
+  width: 100%;
+  min-height: 280px;
+  max-height: 280px; }
+
+.listprojectscardscroll {
+  max-height: 190px;
+  min-height: 190px;
+  overflow-y: scroll; }
+
+.addbutton {
+  font-size: 0.25rem; }
+
+.lineprojects {
+  min-height: 300px;
+  max-height: 350px;
+  overflow-y: scroll; }
+
+.projectcard {
+  margin-bottom: 50px;
+  margin-right: 60px;
+  margin-left: 80px;
+  width: 300px; }
 
 /* Dashboard page */
 .running .loader {
