@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+body {
+  background-color: #eeeded; }
+
+>>>>>>> 7d343d42c605e2e1faa57bf768f03a61776fc72b
 h1, h2, h3, span {
   font-weight: bold; }
 
@@ -54,7 +60,7 @@ h1, h2, h3, span {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #fdfdfd;
   background-clip: border-box;
   border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: .25rem;
