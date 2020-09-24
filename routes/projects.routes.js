@@ -11,12 +11,18 @@ const { find } = require('../models/project.model')
 router.post('/createproject', cdnUploader.single('videoInput'), (req, res) => {
     
     const userRegistered = true
-    const { name, description } = req.body
+    const { name, description, github, web } = req.body
+
+    const links = {
+        gitHub: github,
+        web: web
+    }
+
     let video = `${req.user.video}`
     if (req.file) 
         video =  req.file.path
      
-    Project.create({name, description, video})
+    Project.create({name, description, video, links})
         .then((project) => {
 
             User.findById(req.user)

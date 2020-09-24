@@ -12,12 +12,12 @@ document.querySelector('#searchJob').onkeyup = e => {
     job(searchInput)
 }
 
-// document.querySelector('#categoriesSelect').onchange = e => {
+document.querySelector('#categoriesSelect').onchange = e => {
 
-//     console.log('prueba')
+    let searchSelect = document.querySelector('#categoriesSelect').value
 
-
-// }
+    console.log(searchSelect)
+}
 
 window.addEventListener('load', e => {
 

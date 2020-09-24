@@ -264,14 +264,22 @@
             <form action="/createproject" method="POST"  enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name-input">Project Name</label>
-                    <input name="name" type="text" placeholder="" value="" class="form-control" id="name-input">
+                    <input name="name" type="text" class="form-control" id="name-input" required>
                 </div>
                 <div class="form-group">
                     <label for="description-input">Description</label>
-                    <input name="description" type="text" placeholder="" value="" class="form-control" id="description-input">
+                    <textarea name="description" maxlength="50" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="link-github">GitHub</label>
+                    <input name="github" type="text" class="form-control" id="link-github" required>
+                </div>
+                <div class="form-group">
+                    <label for="web-github">Web</label>
+                    <input name="web" type="text" class="form-control" id="web-github" required>
                 </div>
                 <input type="text" name="fileUrl" placeholder="" value=""><br><br>
-                <input type="file" name="videoInput"><br><br>
+                <input type="file" name="videoInput" required><br><br>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

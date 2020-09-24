@@ -12,6 +12,7 @@ const projectsSchema = new Schema({
     },
     video: {
         type: 'String',
+        required: true,
         default: 'https://res.cloudinary.com/dfhcho5xi/image/upload/v1600766091/gi46eplb2c4f6yv8ojao.png'
     },
     img : {
