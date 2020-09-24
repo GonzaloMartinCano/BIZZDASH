@@ -1,12 +1,30 @@
 const jobAPI = new JobApiHandler();
 
-const category = ''
+const category = 'javascript'
+
+// Event for job offers
+document.querySelector('#searchJob').onkeyup = e => {
+
+    let searchInput = document.querySelector('#searchJob').value
+
+    searchInput === '' ? searchInput = 'Javascript' : null
+
+    job(searchInput)
+}
+
+// document.querySelector('#categoriesSelect').onchange = e => {
+
+//     console.log('prueba')
+
+
+// }
 
 window.addEventListener('load', e => {
-    
+
     jobAPI
         .getJobsByLocation()
         .then(response => setJobsByLocationChart(response.data.locations, 'jobsByLocationChart'))
+        .then(() => document.body.classList.add('running'))
         .catch(err => console.log('an error has ocurred ', err))
 
     jobAPI
@@ -15,18 +33,23 @@ window.addEventListener('load', e => {
         .catch(err => console.log('An error has ocurred ', err));
 
     jobAPI
-        .getTopCompanies()
-        .then(response => setCompaniesChart(response.data.leaderboard, 'companiesChart'))
-        .catch(err => console.log('An error has ocurred ', err))
-
-    jobAPI
         .getSalaryHistogram(category)
         .then(response => setSalaryHistogram(response.data.histogram, 'histogramSalaryChart'))
-        .then(() => document.body.classList.add('running'))
+        .catch(err => console.log('An error has ocurred ', err))  
+
+    job(category)
+    topCompanies(category)
+
+})
+
+function topCompanies(category) {
+
+    jobAPI
+        .getTopCompanies(category)
+        .then(response => setCompaniesChart(response.data.leaderboard, 'companiesChart'))
         .catch(err => console.log('An error has ocurred ', err))
     
-});
-
+}
 
 function job(searchInput) {
     jobAPI
@@ -76,17 +99,3 @@ function job(searchInput) {
         })
         .catch(err => console.log('An error has ocurred ', err))
 }
-
-
-document.querySelector('#searchJob').onkeyup = e => {
-
-    let searchInput = document.querySelector('#searchJob').value
-
-    searchInput === '' ? searchInput = 'Javascript' : null
-
-    job(searchInput)
-   
-}
-
-
-

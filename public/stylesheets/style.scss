@@ -1,11 +1,13 @@
-
 h1, h2, h3, span {
-  font-weight: 900;
-  // color: white;
+  font-weight: bold;
 }
 
 .navbar {
   margin-bottom: 40px;
+}
+
+.navbar img {
+  height: 50px;
 }
 
 
@@ -24,6 +26,7 @@ h1, h2, h3, span {
   max-height: 100px;
   overflow: hidden;
 }
+
 .imglist{
   margin-top: 15px;
   margin-left: 10px;
@@ -80,8 +83,28 @@ h1, h2, h3, span {
   margin-left: 0;
 }
 
+.profile a {
+  color: black;
+}
+
+.profile a:hover {
+  text-decoration: none;
+  color: black;
+}
+
 
 /* Dashboard page */
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.loader strong {
+  margin-right: 50px;
+}
 
 .running .loader {
   display: none !important;
@@ -97,6 +120,14 @@ h1, h2, h3, span {
 
 .dashboard canvas {
   max-height: 200px !important;
+}
+
+.dashboard .form-group {
+  margin-bottom: 10px;
+}
+
+.dashboarad aside input {
+  height: 35px !important;
 }
 
 .dashboard #jobs-list-container ul {

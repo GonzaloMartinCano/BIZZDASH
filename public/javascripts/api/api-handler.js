@@ -13,23 +13,27 @@ class JobApiHandler {
         })
     }
 
-    getJobCategories() {
+    getJobCategories = () => this.app.get(`gb/categories?app_id=${app_id}&app_key=${app_key}&content-type=application/json`)
 
-        return this.app.get(`gb/categories?app_id=${app_id}&app_key=${app_key}&&content-type=application/json`)
+    getSalaryHistory = () => this.app.get(`gb/history?app_id=${app_id}&app_key=${app_key}&location0=uk&category=it-jobs&content-type=application/json`)
+
+    getJobsByLocation = (category) => {
+        
+        return this.app.get(`gb/geodata?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
 
     }
+    //gb/top_companies?app_id=88d2f761&app_key=c149834145edb3c600358ac8705b465d&what=javascript&content-type=application/json
 
-    getSalaryHistory() {
+    getTopCompanies = (category) => {
 
-        return this.app.get(`gb/history?app_id=${app_id}&app_key=${app_key}&location0=uk&category=it-jobs&content-type=application/json`)
+        return this.app.get(`gb/top_companies?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
 
     }
 
     getSalaryHistogram(category) {
 
-        category = 'javascript'
-
         return this.app.get(`gb/histogram?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
+
     }
 
     getJobs(category) {
@@ -38,18 +42,6 @@ class JobApiHandler {
         const resultPerPage = 3
 
         return this.app.get(`gb/search/${page}?app_id=${app_id}&app_key=${app_key}&results_per_page=${resultPerPage}&title_only=${category}&sort_by=date&content-type=application/json`)
-    }
-
-    getJobsByLocation() {
-        
-        return this.app.get(`gb/geodata?app_id=${app_id}&app_key=${app_key}&category=it-jobs&content-type=application/json`)
-
-    }
-
-    getTopCompanies() {
-
-        return this.app.get(`gb/top_companies?app_id=${app_id}&app_key=${app_key}&what=developer&category=it-jobs&content-type=application/json`)
-
     }
 
 }

@@ -42,7 +42,7 @@ const userSchema = new Schema({
     },
     interest: {
         type: [String],
-        enum: ['Javascript', 'React', 'Front-End', 'Back-End']
+        enum: ['Javascript', 'React', 'Front-End', 'Back-End', 'Fullstack']
     },
     description: {
         type: String,

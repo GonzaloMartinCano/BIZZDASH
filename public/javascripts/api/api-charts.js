@@ -2,8 +2,8 @@
 
 const styles = {
     color: {
-        solids: ['rgba(116, 72, 194, 1)', 'rgba(33, 192, 215, 1)', 'rgba(217, 158, 43, 1)', 'rgba(205, 58, 129, 1)', 'rgba(156, 153, 204, 1)', 'rgba(225, 78, 202, 1)'],
-        alphas: ['rgba(116, 72, 194, .2)', 'rgba(33, 192, 215, .2)', 'rgba(217, 158, 43, .2)', 'rgba(205, 58, 129, .2)', 'rgba(156, 153, 204, .2)', 'rgba(225, 78, 202, .2)']
+        solids: ['rgba(116, 72, 194, 1)', 'rgba(33, 192, 215, 1)', 'rgba(217, 158, 43, 1)', 'rgba(205, 58, 129, 1)', 'rgba(156, 153, 204, 1)', 'rgba(225, 78, 202, 1)', 'rgba(42, 157, 143', 'rgba(38, 70, 83)', 'rgba(231, 29, 54)', 'rgba(251, 139, 36)'],
+        alphas: ['rgba(116, 72, 194, .2)', 'rgba(33, 192, 215, .2)', 'rgba(217, 158, 43, .2)', 'rgba(205, 58, 129, .2)', 'rgba(156, 153, 204, .2)', 'rgba(225, 78, 202, .2)', 'rgba(42, 157, 143, .2', 'rgba(38, 70, 83, .2)', 'rgba(231, 29, 54, .2)', 'rgba(251, 139, 36, .2)']
     }
 };
 
@@ -25,7 +25,9 @@ function setSalaryChart(salaryHistory, id) {
         labels: salaryHistoryKeys,
         datasets: [{
             data: salaryHistoryValues,
-            backgroundColor: styles.color.alphas[1]
+            borderColor: styles.color.solids[8],
+            backgroundColor: styles.color.alphas[8],
+            borderWidth: 1
         }]
     }
 
@@ -110,7 +112,9 @@ function setSalaryHistogram(salaryHistogram, id) {
         labels: salaryHistogramKeys,
         datasets: [{
             data: salaryHistogramValues,
-            backgroundColor: styles.color.alphas[1]
+            borderColor: styles.color.solids[1],
+            backgroundColor: styles.color.alphas[1],
+            borderWidth: 1
         }]
     }
 

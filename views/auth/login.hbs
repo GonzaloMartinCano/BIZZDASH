@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
 
-            <h1>Sign in to BizDash</h1>
+            <h1>Sign in</h1>
 
             <form action="/login" method="POST">
                 <div class="form-group">
@@ -16,7 +16,7 @@
                     <input name="password" type="password" class="form-control" id="password">
                 </div>
 
-                <button type="submit" class="btn btn-dark btn-block btn-lg">Sig in</button>
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Sig in to {{title}}</button>
 
                 {{#if errorMsg}}
                 <div id="errorMsg">{{{errorMsg}}}</div>

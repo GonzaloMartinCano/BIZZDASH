@@ -9,9 +9,19 @@
     
     <div class="row dashboard">
 
-        <h1 class="col-md-9 h3 mb-4">WELCOME TO YOUR CUSTOMIZED BIZDASH</h1>
+        <h1 class="col-md-9 h3 mb-4">WELCOME TO YOUR CUSTOMIZED DASHBOARD</h1>
 
-        <h4 class="col-md-3 mb-3">Latest job offers</h4>
+        <form>
+            
+            <div class="form-group">
+
+                <select name="categorySelect" id="categoriesSelect">
+                    <option value="javascript">Javascript</option>
+                    <option value="react">React</option>
+                </select>
+                
+            </div>
+        </form>
 
         <div class="col-md-9">
             <div class="row">
@@ -69,7 +79,7 @@
                             <canvas id="histogramSalaryChart"></canvas>
                 
                             <hr>
-                            <small class="text-muted">Top five companies by number of vacancies.</small>
+                            <small class="text-muted">Number of vacancies with a salary in that range.</small>
                         </div>
                     </div>
                 </div>
@@ -95,14 +105,13 @@
         </div>
 
         <aside class="col-md-3" >
-
             
             <form>
-                {{!-- <select name="searchJob">
-                    <option value="javascript">Javascript</option>
-                    <option value="react">React</option>
-                </select> --}}
-                <input type="text" id="searchJob" placeholder="javascript, react, fullstack...">
+                <div class="form-group">
+        
+                    <input type="text" id="searchJob" class="form-control" placeholder="Search job offers">
+                    <small class="form-text text-muted">Fullstack, javascript, react, node...</small>
+                </div>
             </form>
             <div class="row">
                 <div class="col-md-12" id="jobs-list-container">
