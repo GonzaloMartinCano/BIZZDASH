@@ -105,12 +105,13 @@ h1, h2, h3, span {
   min-height: 280px;
   max-height: 280px;
 }
-.descriptioncard p{
 
+.descriptioncardscroll{
+  //display: flex;
+ // width: 100%;
+  min-width: 100px;
   margin-left: 20px;
-  width: 100%;
   max-height: 190px;
-  min-height: 190px;
   overflow-y: scroll;
 }
 
