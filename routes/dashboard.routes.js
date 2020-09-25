@@ -8,7 +8,6 @@ const checkLoggedIn = (req, res, next) => {
     if (req.isAuthenticated() && req.user.username === req.params.username) {
 
         const userRegistered = true
-        console.log(req.user)
         
         res.render('profile/dashboard', {user: req.user})
 

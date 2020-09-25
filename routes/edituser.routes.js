@@ -23,9 +23,10 @@ router.post('/edituser', cdnUploader.single('imageInput'), (req, res) => {
     let experiencesdata = [req.body.javascript, req.body.react, req.body.node, req.body.frontend, req.body.backend, req.body.fullstack]
 
     let x = 0
-    while (experiencesdata.length - 1 > x++) {
+    while (experiencesdata.length > x) {
         if (experiencesdata[x])
-        newexperiences.push(experiencesdata[x])
+            newexperiences.push(experiencesdata[x])
+        x++
     }
 
     let profileImg = `${req.user.profileImg}`
