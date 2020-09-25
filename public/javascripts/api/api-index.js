@@ -18,9 +18,9 @@ document.querySelector('#categoriesSelect').onchange = e => {
     let searchSelect = document.querySelector('#categoriesSelect').value
 
     // Companies container
-    // const companiesContainer = document.querySelector('#companiesContainer')
-    // companiesContainer.innerHTML = ''
-    // companiesContainer.innerHTML = '<canvas canvas id="companiesChart"></canvas><hr><small class="text-muted"> Number of jobs advertised</small>'
+    const companiesContainer = document.querySelector('#companiesContainer')
+    companiesContainer.innerHTML = ''
+    companiesContainer.innerHTML = '<canvas canvas id="companiesChart"></canvas><hr><small class="text-muted"> Number of jobs advertised</small>'
 
     // Histogram container
     const histogramSalaryContainer = document.querySelector(('#histogramSalaryContainer'))

@@ -219,12 +219,16 @@
                     <input name="name" type="text" placeholder="{{usertorender.username}}" value="{{usertorender.name}}" class="form-control" id="name-input">
                 </div>
                 <div class="form-group">
+                    <label for="headline-input">Headline</label>
+                    <input name="headline" type="text" placeholder="{{usertorender.headline}}" value="{{usertorender.headline}}" class="form-control" id="headline-input">
+                </div>
+                <div class="form-group">
                     <label for="description-input">Description</label>
                     <textarea name="description" class="form-control" rows="4">{{usertorender.description}}</textarea>
                     {{!-- <input name="description" type="text" placeholder="{{usertorender.description}}" value=""  id="description-input"> --}}
                 </div>
 
-                <label>Experience</label>
+                <label>Experience</label>  <p style="font-size: xx-small;">*Your actually experiences are: '{{usertorender.experience}}' </p>
 
                 <div class="form-group">
                     <div class="row">

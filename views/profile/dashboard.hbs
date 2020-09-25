@@ -1,7 +1,6 @@
 
 
 <div class="container">
-    
     <div class="d-flex align-items-center loader">
         <strong>Loading info...</strong>
         <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
@@ -16,8 +15,13 @@
             <div class="form-group">
 
                 <select name="categorySelect" id="categoriesSelect">
-                    <option value="javascript">Javascript</option>
-                    <option value="react">React</option>
+
+            {{#each user.experience}}
+
+                    <option value="{{this}}">{{this}}</option>
+
+            {{/each}}
+
                 </select>
                 
             </div>
