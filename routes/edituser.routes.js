@@ -14,7 +14,7 @@ router.post('/edituser', cdnUploader.single('imageInput'), (req, res) => {
     const { name, description, headline, fronend,
             backend, fullstack, node, javascript, react } = req.body
 
-    console.log(req.body.name, req.body.javascript)  // No devuelve nada javascript
+    console.log(req.body.fullstack, "-----------------", fullstack, node)  // No devuelve nada javascript
 
     const links = {
         gitHub: req.body.gitHub,
