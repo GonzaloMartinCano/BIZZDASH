@@ -67,6 +67,7 @@ function setCompaniesChart(companies, id) {
         }
     }
 
+    
     new Chart(id, { type: 'horizontalBar', data, options })
 
 }

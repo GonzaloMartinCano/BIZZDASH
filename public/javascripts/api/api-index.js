@@ -12,35 +12,67 @@ document.querySelector('#searchJob').onkeyup = e => {
     job(searchInput)
 }
 
+// Event for select tag
 document.querySelector('#categoriesSelect').onchange = e => {
 
     let searchSelect = document.querySelector('#categoriesSelect').value
 
-    console.log(searchSelect)
+    // Companies container
+    // const companiesContainer = document.querySelector('#companiesContainer')
+    // companiesContainer.innerHTML = ''
+    // companiesContainer.innerHTML = '<canvas canvas id="companiesChart"></canvas><hr><small class="text-muted"> Number of jobs advertised</small>'
+
+    // Histogram container
+    const histogramSalaryContainer = document.querySelector(('#histogramSalaryContainer'))
+    histogramSalaryContainer.innerHTML = ''
+    histogramSalaryContainer.innerHTML = '<canvas id="histogramSalaryChart"></canvas> <hr><small class="text-muted">Number of vacancies with a salary in that range.</small>'
+
+    // Jobs by location container
+    const jobsByLocationContainer = document.querySelector(('#jobsByLocationContainer'))
+    jobsByLocationContainer.innerHTML = ''
+    jobsByLocationContainer.innerHTML = '<canvas id="jobsByLocationChart"></canvas><hr><small class="text-muted" > Number of jobs advertised</small >'
+
+    topCompanies(searchSelect)
+    histogramSalary(searchSelect)
+    jobsByLocation(searchSelect)
 }
 
 window.addEventListener('load', e => {
 
-    jobAPI
-        .getJobsByLocation()
-        .then(response => setJobsByLocationChart(response.data.locations, 'jobsByLocationChart'))
-        .then(() => document.body.classList.add('running'))
-        .catch(err => console.log('an error has ocurred ', err))
+    salaryHistory()
+    job(category)
+    topCompanies(category)
+    histogramSalary(category)
+    jobsByLocation(category)
 
+})
+
+function salaryHistory() {
     jobAPI
         .getSalaryHistory()
         .then(response => setSalaryChart(response.data.month, 'salaryChart'))
         .catch(err => console.log('An error has ocurred ', err));
+}
+
+function jobsByLocation(category) {
+
+    jobAPI
+        .getJobsByLocation(category)
+        .then(response => setJobsByLocationChart(response.data.locations, 'jobsByLocationChart'))
+        .then(() => document.body.classList.add('running'))
+        .catch(err => console.log('an error has ocurred ', err))
+    
+}
+
+
+function histogramSalary(category) {
 
     jobAPI
         .getSalaryHistogram(category)
         .then(response => setSalaryHistogram(response.data.histogram, 'histogramSalaryChart'))
         .catch(err => console.log('An error has ocurred ', err))  
-
-    job(category)
-    topCompanies(category)
-
-})
+    
+}
 
 function topCompanies(category) {
 

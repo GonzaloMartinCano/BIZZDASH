@@ -220,10 +220,53 @@
                 </div>
                 <div class="form-group">
                     <label for="description-input">Description</label>
-                    <input name="description" type="text" placeholder="{{usertorender.description}}" value="{{usertorender.description}}" class="form-control" id="description-input">
+                    <textarea name="description" class="form-control" rows="4">{{usertorender.description}}</textarea>
+                    {{!-- <input name="description" type="text" placeholder="{{usertorender.description}}" value=""  id="description-input"> --}}
                 </div>
+
+                <label>Experience</label>
+
                 <div class="form-group">
-                    <label for="gitHub-input">Git Hub</label>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="frontend" value="FrontEnd" class="custom-control-input" id="frontend">
+                                <label class="custom-control-label" for="frontend">Frontend </label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="backend" value="BackEnd" class="custom-control-input" id="backend">
+                                <label class="custom-control-label" for="backend">Backend</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-4">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="fullstack" value="Fullstack" class="custom-control-input"  id="fullstack">
+                                <label class="custom-control-label" for="fullstack">FullStack</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="node" value="Node" class="custom-control-input" id="node">
+                                <label class="custom-control-label" for="node">Node</label>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="javascript" value="Javascript" class="custom-control-input"  id="javascript">
+                                <label class="custom-control-label" for="javascript">Javascript</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="react" value="React" class="custom-control-input" id="react">
+                                <label class="custom-control-label" for="react">React</label>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="gitHub-input">GitHub</label>
                     <input name="gitHub" type="text" placeholder="{{usertorender.links.gitHub}}" value="{{usertorender.links.gitHub}}" class="form-control" id="gitHub-input">
                 </div>
                 <div class="form-group">

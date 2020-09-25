@@ -11,9 +11,10 @@ const User = require('../models/user.model')
 
 router.post('/edituser', cdnUploader.single('imageInput'), (req, res) => {
 
-    const { name, description, headline } = req.body
+    const { name, description, headline, fronend,
+            backend, fullstack, node, javascript, react } = req.body
 
-    console.log(req.body)
+    console.log(req.body.name, req.body.javascript)  // No devuelve nada javascript
 
     const links = {
         gitHub: req.body.gitHub,

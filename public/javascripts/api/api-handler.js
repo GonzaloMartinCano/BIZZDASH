@@ -17,24 +17,11 @@ class JobApiHandler {
 
     getSalaryHistory = () => this.app.get(`gb/history?app_id=${app_id}&app_key=${app_key}&location0=uk&category=it-jobs&content-type=application/json`)
 
-    getJobsByLocation = (category) => {
-        
-        return this.app.get(`gb/geodata?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
+    getJobsByLocation = (category) => this.app.get(`gb/geodata?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
 
-    }
-    //gb/top_companies?app_id=88d2f761&app_key=c149834145edb3c600358ac8705b465d&what=javascript&content-type=application/json
+    getTopCompanies = (category) => this.app.get(`gb/top_companies?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
 
-    getTopCompanies = (category) => {
-
-        return this.app.get(`gb/top_companies?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
-
-    }
-
-    getSalaryHistogram(category) {
-
-        return this.app.get(`gb/histogram?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
-
-    }
+    getSalaryHistogram = (category) => this.app.get(`gb/histogram?app_id=${app_id}&app_key=${app_key}&what=${category}&content-type=application/json`)
 
     getJobs(category) {
 

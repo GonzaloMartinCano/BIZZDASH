@@ -47,7 +47,7 @@ const userSchema = new Schema({
     },
     experience: {
         type: [String],
-        enum: ['Javascript', 'React', 'Node', 'Front-End', 'Back-End', 'Fullstack']
+        enum: ['Javascript', 'React', 'Node', 'FrontEnd', 'BackEnd', 'Fullstack']
     },
     description: {
         type: String,
