@@ -8,6 +8,8 @@ You can test it in:
   
 *You can search for users in home and see their profiles. 
 
+![Alt text](https://raw.githubusercontent.com/Zalillo18/BIZZDASH/master/Bizzdash.png)
+
 
 
 
