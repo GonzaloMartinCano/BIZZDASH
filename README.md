@@ -5,6 +5,7 @@ Project to create your own businees dashboard.
 You can test it in: 
 
   https://bizzdash.herokuapp.com/
+  
 *You can search for users in home and see their profiles. 
 
 
