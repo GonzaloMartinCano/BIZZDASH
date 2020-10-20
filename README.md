@@ -1,6 +1,11 @@
 # BIZDASH
 
-Project to create your own businees dashboard
+Project to create your own businees dashboard. 
+
+You can test it in: 
+
+  https://bizzdash.herokuapp.com/
+*You can search for users in home and see their profiles. 
 
 
 
@@ -13,6 +18,6 @@ Project to create your own businees dashboard
 | /:USERNAME/DASHBOARD  | GET  | USER  | DAHSBOARD  |
 | /:USERNAME/DASHBOARD/EDIT  | POST  | USER  | DAHSBOARD  |
 
-
+*Use of modals tu create a single page experience.
 
 
